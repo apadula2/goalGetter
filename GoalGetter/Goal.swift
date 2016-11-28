@@ -1,5 +1,5 @@
-//
-//  Goal.swift
+
+// Goal.swift
 //  GoalGetter
 //
 //  Created by Sean Webber on 11/16/16.
@@ -11,30 +11,23 @@ import Foundation
 
 class Goal{
     
-    var goalTitles: [String] = []
-    var units: [String] = []
-    var goalNumbers: [Int] = []
+    var goalTitle: String = ""
+    var unit: String = ""
+    var goalNumbers: Int = 0
+    var goalID: Int = 0
+    var additions: Int = 0
     
     init(){
-        
+        let goalsDatabase = GoalsDB()
     }
     
-    func addGoal(name: String, unit: String, goalNumber: Int){
-        goalTitles.append(name)
-        units.append(unit)
-        goalNumbers.append(goalNumber)
+    func addGoal(goalID: Int, name: String, unit: String, goalNumber: Int){
+        GoalsDB.add(<#T##GoalsDB#>)
     }
     
     func deleteGoal(name: String, unit: String, goalNumber: Int){
+        GoalsDB.deleteGoal(<#T##GoalsDB#>)
         
-        let index =  goalTitles.index(of: name)
-        goalTitles.remove(at: index!)
-        
-        let index1 = units.index(of: unit)
-        units.remove(at: index1!)
-        
-        let index2 = goalNumbers.index(of: goalNumber)
-        goalNumbers.remove(at: index2!)
     }
     
     func updateProgressBar
