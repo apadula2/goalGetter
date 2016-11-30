@@ -6,7 +6,6 @@
 //  Copyright © 2016 Sean Webber. All rights reserved.
 //
 
-
 import SQLite
 
 
@@ -19,11 +18,11 @@ class GoalsDB{
     
     
     private let Goals = Table("Goals")
-    private let goalID = <Int> ("goalID")
-    private let names = <String> ("Name")
-    private let goalNumbers = <Int> ("goalNumber")
-    private let additions = <Int> ("Addition")
-    private let units = <String> ("Units")
+    private let goalID = Expression<Int> ("goalID")
+    private let names = Expression<String> ("Name")
+    private let goalNumbers = Expression<Int> ("goalNumber")
+    private let total = Expression<Int> ("Total")
+    private let units = Expression<String> ("Units")
     
     
     private init(){
@@ -42,7 +41,7 @@ class GoalsDB{
                 table.column(goalID, primaryKey: true)
                 table.column(names)
                 table.column(goalNumbers)
-                table.column(additions)
+                table.column(total)
                 table.column(units)
             })
         } catch {
@@ -53,9 +52,11 @@ class GoalsDB{
     func add(Goal: Goal){
         do {
             let insert = Goal.insert(
-                names <- Goal.goalTitles[goalTitles.length()-1],
-                goalNumbers <- Goal.goalNumbers[goalNumbers.length()-1],
-                units <- Goal.units[units.length()-1] )
+                goalID <- Goal.goalID,
+                names <- Goal.goalTitle,
+                goalNumbers <- Goal.goalNumbers,
+                total <- Goal.total,
+                units <- Goal.units)
             
             let id = try db!.run(insert)
             return id
