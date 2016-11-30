@@ -13,9 +13,9 @@ class Goal{
     
     var goalTitle: String = ""
     var unit: String = ""
-    var goalNumbers: Int = 0
+    var goalTarget: Int = 0
     var goalID: Int = 0
-    var total: Int = 0
+    var progess: Int = 0
     
     init(){
         let goalsDatabase = GoalsDB()

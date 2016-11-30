@@ -20,8 +20,8 @@ class GoalsDB{
     private let Goals = Table("Goals")
     private let goalID = Expression<Int> ("goalID")
     private let names = Expression<String> ("Name")
-    private let goalNumbers = Expression<Int> ("goalNumber")
-    private let total = Expression<Int> ("Total")
+    private let goalTarget = Expression<Int> ("goalTarget")
+    private let progress = Expression<Int> ("Progress")
     private let units = Expression<String> ("Units")
     
     
@@ -40,8 +40,8 @@ class GoalsDB{
             try db!.run(Goals.create { table in
                 table.column(goalID, primaryKey: true)
                 table.column(names)
-                table.column(goalNumbers)
-                table.column(total)
+                table.column(goalTarget)
+                table.column(progress)
                 table.column(units)
             })
         } catch {
@@ -51,7 +51,7 @@ class GoalsDB{
     
     func add(Goal: Goal){
         do {
-            let insert = Goal.insert(
+            
                 goalID <- Goal.goalID,
                 names <- Goal.goalTitle,
                 goalNumbers <- Goal.goalNumbers,
