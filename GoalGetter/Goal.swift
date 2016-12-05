@@ -22,15 +22,17 @@ class Goal{
     }
     
     func addGoal(goalID: Int, name: String, unit: String, goalNumber: Int){
-        GoalsDB.add(<#T##GoalsDB#>)
+        GoalsDB.add(goalID: Int, name: String, unit: String, goalNumber: Int)
     }
     
     func deleteGoal(name: String, unit: String, goalNumber: Int){
-        GoalsDB.deleteGoal(<#T##GoalsDB#>)
+        GoalsDB.deleteGoal(name: String, unit: String, goalNumber: Int)
         
     }
     
-    func updateProgressBar
-    
-    
+    func findLength() -> Int{
+    var goals: [Goal] = []
+    goals = GoalsDB.getGoals()
+    return goals.count
+    }
 }

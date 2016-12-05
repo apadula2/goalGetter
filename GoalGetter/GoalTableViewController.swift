@@ -36,8 +36,8 @@ class GoalTableViewController: UITableViewController {
 
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-     
-        return goals.length
+        let goal = Goal() 
+        return goal.findLength()
     }
 
 

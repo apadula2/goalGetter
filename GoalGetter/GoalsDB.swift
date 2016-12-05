@@ -51,7 +51,7 @@ class GoalsDB{
     
     func add(Goal: Goal){
         do {
-            
+            let insert = Goals.insert(
                 goalID <- Goal.goalID,
                 names <- Goal.goalTitle,
                 goalNumbers <- Goal.goalNumbers,
@@ -74,7 +74,21 @@ class GoalsDB{
             print("GOAL: Delete failed")
         }
     }
-    
-    
-    
+    func getGoals() -> [Goal]{
+        var goals: [Goal] = []
+        do{
+            for Goal in try db!.prepare(self.Goals){
+            goals.append(
+                Goal(goalID: Goal[goalID],
+                names: Goal[names],
+                goalTarget: Goal[target],
+                progress: Goal[progress],
+                units: Goal[units]))
+            }
+        } catch {
+            print("GOAL: unable to read the table")
+        }
+        
+        return goals
+    }
 }
