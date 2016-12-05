@@ -30,9 +30,4 @@ class Goal{
         
     }
     
-    func findLength() -> Int{
-    var goals: [Goal] = []
-    goals = GoalsDB.getGoals()
-    return goals.count
-    }
 }

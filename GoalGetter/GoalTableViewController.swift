@@ -19,6 +19,9 @@ class GoalTableViewCell: UITableViewCell{
 
 class GoalTableViewController: UITableViewController {
 
+    var goal:Goal = Goal()
+    var goals:[Goal] = GoalsDB.getGoals()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,15 +39,14 @@ class GoalTableViewController: UITableViewController {
 
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        let goal = Goal() 
-        return goal.findLength()
+    
+        return goals.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GoalCell", for: indexPath) as! GoalTableViewCell
-       
-        let goal = goals[indexPath.row]
+        goal = goals[indexPath.row]
         cell.GoalName?.text = goal.goalTitle
         cell.GoalTarget?.text = goal.goalTarget + goal.unit
         cell.GoalProgress?.text = goal.progress
