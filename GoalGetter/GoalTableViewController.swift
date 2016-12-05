@@ -20,8 +20,7 @@ class GoalTableViewCell: UITableViewCell{
 class GoalTableViewController: UITableViewController {
 
     var goal:Goal = Goal()
-    var goals:[Goal] = GoalsDB.getGoals()
-
+    var goals:[Goal] = GoalsDB().getGoals()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,9 +47,9 @@ class GoalTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GoalCell", for: indexPath) as! GoalTableViewCell
         goal = goals[indexPath.row]
         cell.GoalName?.text = goal.goalTitle
-        cell.GoalTarget?.text = goal.goalTarget + goal.unit
-        cell.GoalProgress?.text = goal.progress
-        cell.ProgressBar?.setProgress(goal.progress/goal.goaltarget,true)
+        cell.GoalTarget?.text = String(goal.goalTarget) + goal.unit
+        cell.GoalProgress?.text = (String)(goal.progress)
+        cell.ProgressBar?.setProgress(Float(goal.progress)/Float(goal.goalTarget),animated: true)
        
         return cell
     }

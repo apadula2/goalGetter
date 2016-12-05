@@ -16,7 +16,6 @@ class GoalsDB{
     
     private var db: Connection? = nil
     
-    
     private let Goals = Table("Goals")
     private let goalID = Expression<Int> ("goalID")
     private let names = Expression<String> ("Name")
@@ -25,7 +24,7 @@ class GoalsDB{
     private let units = Expression<String> ("Units")
     
     
-    private init(){
+     init(){
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         
         do {
