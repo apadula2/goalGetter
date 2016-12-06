@@ -11,14 +11,19 @@ import Foundation
 
 class Goal{
     
-    var goalTitle: String = ""
-    var unit: String = ""
-    var goalTarget: Int = 0
-    var goalID: Int = 0
-    var progress: Int = 0
+    var goalTitle: String
+    var unit: String
+    var goalTarget: Int
+    var goalID: Int
+    var progress: Int
     
-    init(){
-        let goalsDatabase = GoalsDB()
+    init(goalTitle: String, unit: String, goalTarget: Int, goalID: Int, progress: Int){
+        self.goalTitle = goalTitle
+        self.unit = unit
+        self.goalTarget = goalTarget
+        self.goalID = goalID
+        self.progress = progress
+       // let goalsDatabase = GoalsDB()
     }
     
     func addGoal(goalID: Int, name: String, unit: String, goalNumber: Int){

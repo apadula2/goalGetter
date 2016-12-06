@@ -48,27 +48,28 @@ class GoalsDB{
         }
     }
     
-    func add(Goal: Goal){
+    func add(Goal: Goal)-> Int?{
         do {
             let insert = Goals.insert(
-                goalID <- Goal.goalID,
+                
                 names <- Goal.goalTitle,
-                goalNumbers <- Goal.goalNumbers,
-                total <- Goal.total,
-                units <- Goal.units)
+                goalTarget <- Goal.goalTarget,
+                progress <- Goal.progress,
+                units <- Goal.unit)
             
-            let id = try db!.run(insert)
-            return id
+          let goalID = try db!.run(insert)
+          return Int(goalID)
+
         } catch {
             print("Goals: Insert failed")
             return nil
         }
     }
     
-    func deleteGoal(goalId: Int){
+    func deleteGoal(aId: Int){
         do {
-            let goal = Goal.filter(id == goalID)
-            let _ = try db!.run(Goal.delete())
+            let goal = Goals.filter(goalID == aId)
+            let _ = try db!.run(goal.delete())
         } catch {
             print("GOAL: Delete failed")
         }
@@ -76,13 +77,13 @@ class GoalsDB{
     func getGoals() -> [Goal]{
         var goals: [Goal] = []
         do{
-            for Goal in try db!.prepare(self.Goals){
+            for goal in try db!.prepare(self.Goals){
             goals.append(
-                Goal(goalID: Goal[goalID],
-                names: Goal[names],
-                goalTarget: Goal[target],
-                progress: Goal[progress],
-                units: Goal[units]))
+                Goal(goalID: goal[goalID],
+                names: goal[names],
+                goalTarget: goal[goalTarget],
+                progress: goal[progress],
+                units: goal[units]))
             }
         } catch {
             print("GOAL: unable to read the table")
