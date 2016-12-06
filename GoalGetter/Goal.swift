@@ -26,13 +26,4 @@ class Goal{
        // let goalsDatabase = GoalsDB()
     }
     
-    func addGoal(goalID: Int, name: String, unit: String, goalNumber: Int){
-        GoalsDB.add(goalID: Int, name: String, unit: String, goalNumber: Int)
-    }
-    
-    func deleteGoal(name: String, unit: String, goalNumber: Int){
-        GoalsDB.deleteGoal(name: String, unit: String, goalNumber: Int)
-        
-    }
-    
 }

@@ -79,11 +79,11 @@ class GoalsDB{
         do{
             for goal in try db!.prepare(self.Goals){
             goals.append(
-                Goal(goalID: goal[goalID],
-                names: goal[names],
-                goalTarget: goal[goalTarget],
-                progress: goal[progress],
-                units: goal[units]))
+                Goal(goalTitle: goal[names],
+                     unit: goal[units],
+                     goalTarget: goal[goalTarget],
+                     goalID: goal[goalID],
+                     progress: goal[progress]))
             }
         } catch {
             print("GOAL: unable to read the table")
