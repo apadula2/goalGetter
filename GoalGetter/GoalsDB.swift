@@ -49,6 +49,8 @@ class GoalsDB{
     }
     
     func add(Goal: Goal)-> Int?{
+        print("This is the goal  ------    ")
+        print(Goal)
         do {
             let insert = Goals.insert(
                 
@@ -58,6 +60,7 @@ class GoalsDB{
                 units <- Goal.unit)
             
           let goalID = try db!.run(insert)
+           
           return Int(goalID)
 
         } catch {

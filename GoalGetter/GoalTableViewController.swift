@@ -19,8 +19,7 @@ class GoalTableViewCell: UITableViewCell{
 
 class GoalTableViewController: UITableViewController {
 
-    var goal:Goal = Goal(goalTitle: "", unit: "", goalTarget: 0, goalID: 0, progress: 0)
-    var goals:[Goal] = GoalsDB().getGoals()
+    var goals:[Goal] = GoalsDB.instance.getGoals()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,9 +43,11 @@ class GoalTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("This is the override function for the table!!!") 
         let cell = tableView.dequeueReusableCell(withIdentifier: "GoalCell", for: indexPath) as! GoalTableViewCell
         
-        goal = goals[indexPath.row]
+        let goal = goals[indexPath.row]
+       
         cell.GoalName?.text = goal.goalTitle
         cell.GoalTarget?.text = String(goal.goalTarget) + goal.unit
         cell.GoalProgress?.text = (String)(goal.progress)
