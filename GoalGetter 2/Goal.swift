@@ -16,17 +16,14 @@ class Goal{
     var goalTarget: Int
     var goalID: Int
     var progress: Int
-    var date: Date
     
-    init(goalTitle: String, unit: String, goalTarget: Int, goalID: Int, progress: Int, date: Date){
+    init(goalTitle: String, unit: String, goalTarget: Int, goalID: Int, progress: Int){
         self.goalTitle = goalTitle
         self.unit = unit
         self.goalTarget = goalTarget
         self.goalID = goalID
         self.progress = progress
-
-        self.date = date 
-       
+       // let goalsDatabase = GoalsDB()
     }
     
 }

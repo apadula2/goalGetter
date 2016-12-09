@@ -39,9 +39,7 @@ class AddGoalViewController: UIViewController {
         let name = NameGoalTextField.text
         let target = Int(GoalTargetNumber.text!)
         let units = GoalTargetNumber.text
-        let now = Date()
-        let dueDate = now.addingTimeInterval(7*24*60*60)
-        let goal = Goal(goalTitle: name!, unit: units!, goalTarget: target!, goalID: 0, progress: 0, date: dueDate )
+        let goal = Goal(goalTitle: name!, unit: units!, goalTarget: target!, goalID: 0, progress: 0)
         _ = GoalsDB.instance.add(Goal: goal)
 
         if segue.identifier == "AddedGoal" {

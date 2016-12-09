@@ -23,8 +23,8 @@ class GoalTableViewController: UITableViewController {
     var goals:[Goal] = GoalsDB.instance.getGoals()
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-               // Uncomment the following line to preserve selection between presentations
+
+        // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -38,7 +38,7 @@ class GoalTableViewController: UITableViewController {
 
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
+    
         return goals.count
     }
 
@@ -46,7 +46,7 @@ class GoalTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("This is the override function for the table!!!") 
         let cell = tableView.dequeueReusableCell(withIdentifier: "GoalCell", for: indexPath) as! GoalTableViewCell
-        var goals:[Goal] = GoalsDB.instance.getGoals()
+        
         let goal = goals[indexPath.row]
        
         cell.GoalName?.text = goal.goalTitle

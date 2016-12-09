@@ -22,16 +22,13 @@ class GoalsDB{
     private let goalTarget = Expression<Int> ("goalTarget")
     private let progress = Expression<Int> ("Progress")
     private let units = Expression<String> ("Units")
-    private let date = Expression<Date> ("Date")
+    
     
      init(){
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         
         do {
             db = try Connection("\(path)/Goals.sqlite")
-            
-            //try db?.run("DROP TABLE Goals")
-            
             createTable()
         } catch {
             print("Goals: Unable to open the database")
@@ -45,7 +42,6 @@ class GoalsDB{
                 table.column(goalTarget)
                 table.column(progress)
                 table.column(units)
-                table.column(date)
             })
         } catch {
             print("Goals: Unable to create table")
@@ -54,15 +50,14 @@ class GoalsDB{
     
     func add(Goal: Goal)-> Int?{
         print("This is the goal  ------    ")
-        print(Goal.date)
+        print(Goal)
         do {
             let insert = Goals.insert(
                 
                 names <- Goal.goalTitle,
                 goalTarget <- Goal.goalTarget,
                 progress <- Goal.progress,
-                units <- Goal.unit,
-                date <- Goal.date )
+                units <- Goal.unit)
             
           let goalID = try db!.run(insert)
            
@@ -91,8 +86,7 @@ class GoalsDB{
                      unit: goal[units],
                      goalTarget: goal[goalTarget],
                      goalID: goal[goalID],
-                     progress: goal[progress],
-                     date: goal[date] ))
+                     progress: goal[progress]))
             }
         } catch {
             print("GOAL: unable to read the table")
