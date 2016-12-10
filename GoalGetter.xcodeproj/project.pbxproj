@@ -19,6 +19,7 @@
 		D7561B461DECC59600354D97 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7561B451DECC59600354D97 /* Goal.swift */; };
 		FC8B56B81DEF589E00F1D50A /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8B56AB1DEF587C00F1D50A /* SQLite.framework */; };
 		FC8B56BA1DEF5A5700F1D50A /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC8B56AB1DEF587C00F1D50A /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FCC33FC41DFCAFAC0001AD42 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC33FC31DFCAFAC0001AD42 /* ProgressViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		D7561B431DECB39D00354D97 /* GoalsDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsDB.swift; sourceTree = "<group>"; };
 		D7561B451DECC59600354D97 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		FC8B56A01DEF587C00F1D50A /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
+		FCC33FC31DFCAFAC0001AD42 /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 				D7561B451DECC59600354D97 /* Goal.swift */,
 				D72D3D2B1DEF60870062984E /* GoalTableViewController.swift */,
 				D72A27B51DF89AA600085B96 /* AddGoalViewController.swift */,
+				FCC33FC31DFCAFAC0001AD42 /* ProgressViewController.swift */,
 			);
 			path = GoalGetter;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				D7561B461DECC59600354D97 /* Goal.swift in Sources */,
 				D72D3D2C1DEF60870062984E /* GoalTableViewController.swift in Sources */,
 				D72A27B61DF89AA600085B96 /* AddGoalViewController.swift in Sources */,
+				FCC33FC41DFCAFAC0001AD42 /* ProgressViewController.swift in Sources */,
 				D7561B441DECB39D00354D97 /* GoalsDB.swift in Sources */,
 				D74E97CE1DDCE1AC003D1B11 /* AppDelegate.swift in Sources */,
 			);

@@ -30,7 +30,7 @@ class GoalsDB{
         do {
             db = try Connection("\(path)/Goals.sqlite")
             
-            //try db?.run("DROP TABLE Goals")
+            try db?.run("DROP TABLE Goals")
             
             createTable()
         } catch {
@@ -72,6 +72,14 @@ class GoalsDB{
             print("Goals: Insert failed")
             return nil
         }
+    }
+    func updateGoal(String: name, Int: Progress){
+        Update Goals
+        Set progress = Progress + progress
+        Where names = name
+        
+        
+        
     }
     
     func deleteGoal(aId: Int){

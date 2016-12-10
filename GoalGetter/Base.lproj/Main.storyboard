@@ -33,7 +33,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k1x-yl-FMe" id="zEK-fd-ajQ">
-                                    <frame key="frameInset" width="375" height="99"/>
+                                    <frame key="frameInset" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FW9-mL-F5x">
@@ -77,7 +77,7 @@
                                     <outlet property="GoalProgress" destination="Oby-lU-nHQ" id="eVu-lM-ZOt"/>
                                     <outlet property="GoalTarget" destination="D4N-2t-GqS" id="4lT-7Z-kIt"/>
                                     <outlet property="ProgressBar" destination="lPD-9L-JAb" id="kYY-eW-yrQ"/>
-                                    <segue destination="qjv-VZ-1CX" kind="show" id="rnN-H7-DaD"/>
+                                    <segue destination="qjv-VZ-1CX" kind="show" identifier="toProgress" id="rnN-H7-DaD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -89,12 +89,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F3I-KC-YsR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="807" y="115"/>
+            <point key="canvasLocation" x="902" y="190"/>
         </scene>
-        <!--View Controller-->
+        <!--Progress View Controller-->
         <scene sceneID="O6B-F3-dC6">
             <objects>
-                <viewController id="qjv-VZ-1CX" sceneMemberID="viewController">
+                <viewController id="qjv-VZ-1CX" customClass="ProgressViewController" customModule="GoalGetter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BZZ-3N-UWE"/>
                         <viewControllerLayoutGuide type="bottom" id="ydI-aL-IQn"/>
@@ -141,9 +141,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="You Did It!"/>
-                                <connections>
-                                    <segue destination="6sX-XM-8lZ" kind="show" id="JmI-7b-aJl"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -172,6 +169,12 @@
                             <constraint firstItem="hqv-h1-CFE" firstAttribute="top" secondItem="WmK-7F-IN8" secondAttribute="bottom" constant="37.5" id="yD5-rc-wI0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="Progress" destination="AAX-it-Mgy" id="kDV-AQ-6Or"/>
+                        <outlet property="Units" destination="AeQ-5s-Yyf" id="5zG-fV-d7S"/>
+                        <outlet property="goalName" destination="hqv-h1-CFE" id="0rN-v9-HMb"/>
+                        <outlet property="submitBtn" destination="MJd-sc-dzW" id="Nt8-uv-4XR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iac-xk-cnX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -283,7 +286,4 @@
     <resources>
         <image name="Image" width="1200" height="1600"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="bDQ-cr-PqT"/>
-    </inferredMetricsTieBreakers>
 </document>

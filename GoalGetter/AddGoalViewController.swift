@@ -45,7 +45,7 @@ class AddGoalViewController: UIViewController {
         _ = GoalsDB.instance.add(Goal: goal)
 
         if segue.identifier == "AddedGoal" {
-           _ = segue.destination as! GoalTableViewController
+          let addGoalController = segue.destination as! GoalTableViewController
         }
 }
 }
