@@ -117,13 +117,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AAX-it-Mgy">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AAX-it-Mgy">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="182" id="ndA-eA-Oh5"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqv-h1-CFE">
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -142,7 +142,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="You Did It!"/>
                                 <connections>
-                                    <segue destination="6sX-XM-8lZ" kind="show" id="DXH-CI-9gt"/>
+                                    <segue destination="6sX-XM-8lZ" kind="show" identifier="addProgress" id="DXH-CI-9gt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rW-qT-TCf">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ELa-WI-1H5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="6sX-XM-8lZ" kind="show" id="FCt-o4-HX5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -153,20 +163,22 @@
                             <constraint firstItem="AeQ-5s-Yyf" firstAttribute="baseline" secondItem="AAX-it-Mgy" secondAttribute="baseline" id="Cyz-4W-j5w"/>
                             <constraint firstItem="AAX-it-Mgy" firstAttribute="bottom" secondItem="AeQ-5s-Yyf" secondAttribute="bottom" id="DUn-cI-fdx"/>
                             <constraint firstItem="AeQ-5s-Yyf" firstAttribute="leading" secondItem="AAX-it-Mgy" secondAttribute="trailing" constant="27" id="E5Q-9u-1Fv"/>
-                            <constraint firstItem="MJd-sc-dzW" firstAttribute="centerX" secondItem="wL6-xV-Ff2" secondAttribute="centerX" constant="3.5" id="EHd-Sm-mtw"/>
+                            <constraint firstItem="MJd-sc-dzW" firstAttribute="centerX" secondItem="wL6-xV-Ff2" secondAttribute="centerX" constant="-14.5" id="EHd-Sm-mtw"/>
                             <constraint firstItem="ezo-Sw-VqC" firstAttribute="top" secondItem="hqv-h1-CFE" secondAttribute="bottom" constant="42" id="Gf5-yn-biJ"/>
                             <constraint firstItem="AAX-it-Mgy" firstAttribute="leading" secondItem="wL6-xV-Ff2" secondAttribute="leadingMargin" constant="35" id="InM-G2-RJN"/>
                             <constraint firstItem="WmK-7F-IN8" firstAttribute="top" secondItem="BZZ-3N-UWE" secondAttribute="bottom" constant="8" symbolic="YES" id="P9g-pH-IeL"/>
                             <constraint firstItem="AAX-it-Mgy" firstAttribute="height" secondItem="AeQ-5s-Yyf" secondAttribute="height" id="Psp-wn-huj"/>
+                            <constraint firstItem="7rW-qT-TCf" firstAttribute="centerY" secondItem="WmK-7F-IN8" secondAttribute="centerY" id="QZw-Bt-Fjh"/>
                             <constraint firstItem="WmK-7F-IN8" firstAttribute="leading" secondItem="wL6-xV-Ff2" secondAttribute="leadingMargin" constant="90" id="Rnd-45-HFw"/>
-                            <constraint firstItem="ydI-aL-IQn" firstAttribute="top" secondItem="MJd-sc-dzW" secondAttribute="bottom" constant="111" id="awk-8v-vkz"/>
+                            <constraint firstItem="ydI-aL-IQn" firstAttribute="top" secondItem="MJd-sc-dzW" secondAttribute="bottom" constant="223" id="awk-8v-vkz"/>
                             <constraint firstItem="AAX-it-Mgy" firstAttribute="top" secondItem="AeQ-5s-Yyf" secondAttribute="top" id="cHv-pP-waa"/>
                             <constraint firstItem="ezo-Sw-VqC" firstAttribute="centerX" secondItem="wL6-xV-Ff2" secondAttribute="centerX" id="iGo-wN-685"/>
                             <constraint firstItem="JSx-Tu-fqt" firstAttribute="bottom" secondItem="ydI-aL-IQn" secondAttribute="top" id="ib6-ZA-zRm"/>
                             <constraint firstItem="JSx-Tu-fqt" firstAttribute="centerX" secondItem="hqv-h1-CFE" secondAttribute="centerX" id="jKe-41-Tzb"/>
+                            <constraint firstItem="7rW-qT-TCf" firstAttribute="leading" secondItem="AAX-it-Mgy" secondAttribute="leading" id="jgZ-PE-7Z6"/>
                             <constraint firstItem="WmK-7F-IN8" firstAttribute="centerX" secondItem="wL6-xV-Ff2" secondAttribute="centerX" constant="11.5" id="jmp-1F-4QN"/>
                             <constraint firstItem="hqv-h1-CFE" firstAttribute="centerX" secondItem="wL6-xV-Ff2" secondAttribute="centerX" id="lYM-0s-fQG"/>
-                            <constraint firstItem="MJd-sc-dzW" firstAttribute="leading" secondItem="WmK-7F-IN8" secondAttribute="leading" constant="-12" id="p2C-t7-cd2"/>
+                            <constraint firstItem="MJd-sc-dzW" firstAttribute="leading" secondItem="WmK-7F-IN8" secondAttribute="leading" constant="-30" id="p2C-t7-cd2"/>
                             <constraint firstItem="AAX-it-Mgy" firstAttribute="top" secondItem="ezo-Sw-VqC" secondAttribute="bottom" constant="72" id="vmk-uP-Yq5"/>
                             <constraint firstItem="JSx-Tu-fqt" firstAttribute="leading" secondItem="wL6-xV-Ff2" secondAttribute="leading" id="wuZ-1c-T8J"/>
                             <constraint firstItem="hqv-h1-CFE" firstAttribute="top" secondItem="WmK-7F-IN8" secondAttribute="bottom" constant="37.5" id="yD5-rc-wI0"/>
@@ -212,7 +224,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HAv-8d-eSP">
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3Z-zG-aDc">
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -235,13 +247,24 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hal-Ku-kYJ">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hal-Ku-kYJ">
+                                <frame key="frameInset" minX="129" minY="365" width="127" height="101"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Add Goal"/>
                                 <connections>
-                                    <segue destination="6sX-XM-8lZ" kind="show" identifier="AddedGoal" id="bDQ-cr-PqT"/>
+                                    <segue destination="6sX-XM-8lZ" kind="show" identifier="addNewGoal" id="bDQ-cr-PqT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5Q-Jl-KYp">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="YWI-9R-5QX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="6sX-XM-8lZ" kind="show" identifier="addNewGoal" id="FWf-zw-d3w"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -249,7 +272,7 @@
                         <constraints>
                             <constraint firstItem="auW-00-MPO" firstAttribute="top" secondItem="UxU-Sf-5KF" secondAttribute="bottom" id="3xK-Lq-KXh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="y3p-WF-qlf" secondAttribute="trailing" constant="36" id="8RS-UW-btA"/>
-                            <constraint firstItem="hal-Ku-kYJ" firstAttribute="top" secondItem="Evi-aE-9dZ" secondAttribute="bottom" constant="36" id="9cQ-pL-Ev4"/>
+                            <constraint firstItem="hal-Ku-kYJ" firstAttribute="top" secondItem="Evi-aE-9dZ" secondAttribute="bottom" constant="8" id="9cQ-pL-Ev4"/>
                             <constraint firstItem="HAv-8d-eSP" firstAttribute="height" secondItem="y3p-WF-qlf" secondAttribute="height" id="BMk-1i-uP7"/>
                             <constraint firstItem="HAv-8d-eSP" firstAttribute="leading" secondItem="fli-80-xWf" secondAttribute="leadingMargin" constant="41" id="Bgr-MU-Xji"/>
                             <constraint firstItem="E3Z-zG-aDc" firstAttribute="top" secondItem="xaV-ky-MII" secondAttribute="bottom" constant="62" id="Dfx-ZX-36k"/>
@@ -258,16 +281,18 @@
                             <constraint firstItem="0i3-Gv-smc" firstAttribute="top" secondItem="E3Z-zG-aDc" secondAttribute="bottom" constant="8" symbolic="YES" id="Kgj-at-zaa"/>
                             <constraint firstItem="auW-00-MPO" firstAttribute="centerX" secondItem="0i3-Gv-smc" secondAttribute="centerX" id="Oc2-6A-y0n"/>
                             <constraint firstItem="Evi-aE-9dZ" firstAttribute="centerX" secondItem="fli-80-xWf" secondAttribute="centerX" id="SAI-51-kFV"/>
-                            <constraint firstItem="hal-Ku-kYJ" firstAttribute="centerX" secondItem="fli-80-xWf" secondAttribute="centerX" id="Scb-Qe-0yb"/>
+                            <constraint firstItem="j5Q-Jl-KYp" firstAttribute="top" secondItem="xaV-ky-MII" secondAttribute="top" id="SNC-9H-QLb"/>
+                            <constraint firstItem="hal-Ku-kYJ" firstAttribute="centerX" secondItem="fli-80-xWf" secondAttribute="centerX" constant="5" id="Scb-Qe-0yb"/>
                             <constraint firstItem="xaV-ky-MII" firstAttribute="centerX" secondItem="fli-80-xWf" secondAttribute="centerX" id="Tgz-HW-Y7A"/>
                             <constraint firstItem="0i3-Gv-smc" firstAttribute="centerX" secondItem="fli-80-xWf" secondAttribute="centerX" id="Ypl-W0-kRq"/>
                             <constraint firstItem="y3p-WF-qlf" firstAttribute="top" secondItem="5ey-7p-CA2" secondAttribute="bottom" constant="8" symbolic="YES" id="c2t-MW-Bi1"/>
                             <constraint firstItem="y3p-WF-qlf" firstAttribute="baseline" secondItem="HAv-8d-eSP" secondAttribute="baseline" id="cCu-Jy-mwI"/>
                             <constraint firstItem="xaV-ky-MII" firstAttribute="top" secondItem="UxU-Sf-5KF" secondAttribute="bottom" constant="18" id="f3C-8l-BWy"/>
                             <constraint firstItem="auW-00-MPO" firstAttribute="leading" secondItem="fli-80-xWf" secondAttribute="leading" id="hXy-lJ-Cv4"/>
-                            <constraint firstItem="RkX-fq-t8l" firstAttribute="top" secondItem="hal-Ku-kYJ" secondAttribute="bottom" constant="98" id="kBB-lk-bYD"/>
+                            <constraint firstItem="RkX-fq-t8l" firstAttribute="top" secondItem="hal-Ku-kYJ" secondAttribute="bottom" constant="201" id="kBB-lk-bYD"/>
                             <constraint firstItem="5ey-7p-CA2" firstAttribute="top" secondItem="0i3-Gv-smc" secondAttribute="bottom" constant="56" id="kuJ-1e-9md"/>
                             <constraint firstItem="y3p-WF-qlf" firstAttribute="bottom" secondItem="HAv-8d-eSP" secondAttribute="bottom" id="rGu-C9-W0I"/>
+                            <constraint firstItem="xaV-ky-MII" firstAttribute="leading" secondItem="j5Q-Jl-KYp" secondAttribute="trailing" constant="39" id="vvY-lp-dgX"/>
                             <constraint firstItem="y3p-WF-qlf" firstAttribute="leading" secondItem="HAv-8d-eSP" secondAttribute="trailing" constant="29" id="vz7-3P-WTR"/>
                             <constraint firstItem="0i3-Gv-smc" firstAttribute="leading" secondItem="fli-80-xWf" secondAttribute="leadingMargin" constant="70" id="y1V-ac-LNv"/>
                             <constraint firstItem="auW-00-MPO" firstAttribute="bottom" secondItem="RkX-fq-t8l" secondAttribute="top" id="y1Z-S7-VgX"/>
@@ -283,13 +308,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rbO-pQ-9Ir" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1289" y="-680"/>
+            <point key="canvasLocation" x="1288.8" y="-680.5097451274363"/>
         </scene>
     </scenes>
     <resources>
         <image name="Image" width="1200" height="1600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DXH-CI-9gt"/>
+        <segue reference="bDQ-cr-PqT"/>
     </inferredMetricsTieBreakers>
 </document>

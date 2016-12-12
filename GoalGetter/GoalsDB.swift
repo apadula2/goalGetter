@@ -68,6 +68,7 @@ class GoalsDB{
             let goalID = try db!.run(insert)
             return Int(goalID)
             
+            
         } catch {
             print("Goals: Insert failed")
             return nil
@@ -109,7 +110,7 @@ class GoalsDB{
         return false
     }
 
-    //deltes a goal from the database
+    //deletes a goal from the database
     func deleteGoal(aID: Int64){
         do {
             let goal = Goals.filter(goalID == aID)

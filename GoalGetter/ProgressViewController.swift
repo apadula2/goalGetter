@@ -32,6 +32,7 @@ class ProgressViewController: UIViewController {
     
     //goal is searched for in database and progress inputed is addded to original progrewss of goal and database is updated with new progress
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "addProgress"{
         let goals = GoalsDB.instance.getGoals()
         var goal:Goal? = nil
         for g in goals{
@@ -42,4 +43,5 @@ class ProgressViewController: UIViewController {
         GoalsDB.instance.updateGoal(aID: Int64((goal?.goalID)!), aprogress: Int(Progress.text!)!)
     }
     
+}
 }

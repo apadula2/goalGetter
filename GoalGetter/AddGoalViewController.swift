@@ -24,8 +24,11 @@ class AddGoalViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+
+    
     //After user enter information, a goal with that information is added to the database and the user is sent back to the main table screen
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "addNewGoal" {
         let name = NameGoalTextField.text
         let target = Int(GoalTargetNumber.text!)
         let units = GoalTargetUnits.text
@@ -34,4 +37,5 @@ class AddGoalViewController: UIViewController {
         let goal = Goal(goalTitle: name!, unit: units!, goalTarget: target!, goalID: 1, progress: 0, date: dueDate )
         _ = GoalsDB.instance.add(Goal: goal)
     }
+}
 }
