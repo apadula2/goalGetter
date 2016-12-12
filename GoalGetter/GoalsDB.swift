@@ -17,7 +17,7 @@ class GoalsDB{
     private var db: Connection? = nil
     
     private let Goals = Table("Goals")
-    private let goalID = Expression<Int> ("goalID")
+    private let goalID = Expression<Int64> ("goalID")
     private let names = Expression<String> ("Name")
     private let goalTarget = Expression<Int> ("goalTarget")
     private let progress = Expression<Int> ("Progress")
@@ -30,7 +30,7 @@ class GoalsDB{
         do {
             db = try Connection("\(path)/Goals.sqlite")
             
-            try db?.run("DROP TABLE Goals")
+           // try db?.run("DROP TABLE Goals")
             
             createTable()
         } catch {
@@ -65,7 +65,7 @@ class GoalsDB{
                 date <- Goal.date )
             
           let goalID = try db!.run(insert)
-           
+           print(getGoals().count)
           return Int(goalID)
 
         } catch {
@@ -73,19 +73,33 @@ class GoalsDB{
             return nil
         }
     }
-    func updateGoal(String: name, Int: Progress){
-        Update Goals
-        Set progress = Progress + progress
-        Where names = name
+    
+    func updateGoal(aID:Int64, aprogress:Int)-> Bool{
+        let goal =  Goals.filter(goalID == aID)
         
-        
-        
+        do{
+            let update = goal.update([
+                progress <- aprogress+progress
+                ])
+            if try db!.run(update) > 0{
+                return true
+            }
+        }catch{
+            print("Update failed: \(error)")
+        }
+        return false
     }
     
-    func deleteGoal(aId: Int){
+
+       
+        
+    
+    
+    func deleteGoal(aID: Int64){
         do {
-            let goal = Goals.filter(goalID == aId)
+            let goal = Goals.filter(goalID == aID)
             let _ = try db!.run(goal.delete())
+            print(getGoals().count)
         } catch {
             print("GOAL: Delete failed")
         }
@@ -98,7 +112,7 @@ class GoalsDB{
                 Goal(goalTitle: goal[names],
                      unit: goal[units],
                      goalTarget: goal[goalTarget],
-                     goalID: goal[goalID],
+                     goalID: Int(goal[goalID]),
                      progress: goal[progress],
                      date: goal[date] ))
             }

@@ -29,11 +29,11 @@
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="k1x-yl-FMe" customClass="GoalTableViewCell" customModule="GoalGetter" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" rowHeight="100" id="k1x-yl-FMe" customClass="GoalTableViewCell" customModule="GoalGetter" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k1x-yl-FMe" id="zEK-fd-ajQ">
-                                    <frame key="frameInset" width="375" height="100"/>
+                                    <frame key="frameInset" width="375" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FW9-mL-F5x">
@@ -77,7 +77,7 @@
                                     <outlet property="GoalProgress" destination="Oby-lU-nHQ" id="eVu-lM-ZOt"/>
                                     <outlet property="GoalTarget" destination="D4N-2t-GqS" id="4lT-7Z-kIt"/>
                                     <outlet property="ProgressBar" destination="lPD-9L-JAb" id="kYY-eW-yrQ"/>
-                                    <segue destination="qjv-VZ-1CX" kind="show" identifier="toProgress" id="rnN-H7-DaD"/>
+                                    <segue destination="qjv-VZ-1CX" kind="show" identifier="toProgress" id="c8b-Bk-q2F"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -89,7 +89,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F3I-KC-YsR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="190"/>
+            <point key="canvasLocation" x="458" y="226"/>
         </scene>
         <!--Progress View Controller-->
         <scene sceneID="O6B-F3-dC6">
@@ -141,6 +141,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="You Did It!"/>
+                                <connections>
+                                    <segue destination="6sX-XM-8lZ" kind="show" id="DXH-CI-9gt"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -286,4 +289,7 @@
     <resources>
         <image name="Image" width="1200" height="1600"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="DXH-CI-9gt"/>
+    </inferredMetricsTieBreakers>
 </document>

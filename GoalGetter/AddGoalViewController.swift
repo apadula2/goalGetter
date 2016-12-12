@@ -14,6 +14,7 @@ class AddGoalViewController: UIViewController {
     @IBOutlet weak var GoalTargetNumber: UITextField!
     @IBOutlet weak var GoalTargetUnits: UITextField!
     @IBOutlet weak var AddGoalButten: UIButton!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,14 +39,10 @@ class AddGoalViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         let name = NameGoalTextField.text
         let target = Int(GoalTargetNumber.text!)
-        let units = GoalTargetNumber.text
+        let units = GoalTargetUnits.text
         let now = Date()
         let dueDate = now.addingTimeInterval(7*24*60*60)
-        let goal = Goal(goalTitle: name!, unit: units!, goalTarget: target!, goalID: 0, progress: 0, date: dueDate )
+        let goal = Goal(goalTitle: name!, unit: units!, goalTarget: target!, goalID: 1, progress: 0, date: dueDate )
         _ = GoalsDB.instance.add(Goal: goal)
-
-        if segue.identifier == "AddedGoal" {
-          let addGoalController = segue.destination as! GoalTableViewController
-        }
-}
+    }
 }

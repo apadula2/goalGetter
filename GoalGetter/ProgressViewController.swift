@@ -16,9 +16,13 @@ class ProgressViewController: UIViewController {
     @IBOutlet weak var goalName: UILabel!
     
     var goalsDB:GoalsDB = GoalsDB.instance
+    var nameText=""
+    var unitText=""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        goalName.text=nameText
+        Units.text=unitText
 
         // Do any additional setup after loading the view.
     }
@@ -29,8 +33,14 @@ class ProgressViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        
-        goalsDB.updateGoal(String: goalName.text, Int: Int(Progress))
+        let goals = GoalsDB.instance.getGoals()
+        var goal:Goal? = nil
+        for g in goals{
+            if g.goalTitle == goalName.text{
+                goal = g
+            }
+        }
+        GoalsDB.instance.updateGoal(aID: Int64((goal?.goalID)!), aprogress: Int(Progress.text!)!)
     }
 
     }
