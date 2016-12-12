@@ -9,7 +9,7 @@
 import UIKit
 
 class ProgressViewController: UIViewController {
-
+    
     @IBOutlet weak var Progress: UITextField!
     @IBOutlet weak var Units: UILabel!
     @IBOutlet weak var submitBtn: UIButton!
@@ -19,19 +19,18 @@ class ProgressViewController: UIViewController {
     var nameText=""
     var unitText=""
     
+    //Goal name and units are set using the the information sent by the main screen in segue
     override func viewDidLoad() {
         super.viewDidLoad()
         goalName.text=nameText
         Units.text=unitText
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    //goal is searched for in database and progress inputed is addded to original progrewss of goal and database is updated with new progress
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         let goals = GoalsDB.instance.getGoals()
         var goal:Goal? = nil
@@ -42,5 +41,5 @@ class ProgressViewController: UIViewController {
         }
         GoalsDB.instance.updateGoal(aID: Int64((goal?.goalID)!), aprogress: Int(Progress.text!)!)
     }
-
-    }
+    
+}

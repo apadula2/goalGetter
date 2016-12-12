@@ -24,9 +24,9 @@ class Goal{
         self.goalTarget = goalTarget
         self.goalID = goalID
         self.progress = progress
-
-        self.date = date 
-       
+        
+        self.date = date
+        
     }
     
 }

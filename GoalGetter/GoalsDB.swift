@@ -24,19 +24,21 @@ class GoalsDB{
     private let units = Expression<String> ("Units")
     private let date = Expression<Date> ("Date")
     
-     init(){
+    init(){
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         
         do {
             db = try Connection("\(path)/Goals.sqlite")
             
-           // try db?.run("DROP TABLE Goals")
+            // try db?.run("DROP TABLE Goals")
             
             createTable()
         } catch {
             print("Goals: Unable to open the database")
         }
     }
+    
+    //creates the database table
     func createTable(){
         do {
             try db!.run(Goals.create { table in
@@ -52,9 +54,8 @@ class GoalsDB{
         }
     }
     
+    //adds a goal into the database
     func add(Goal: Goal)-> Int?{
-        print("This is the goal  ------    ")
-        print(Goal.date)
         do {
             let insert = Goals.insert(
                 
@@ -64,17 +65,16 @@ class GoalsDB{
                 units <- Goal.unit,
                 date <- Goal.date )
             
-          let goalID = try db!.run(insert)
-           print(getGoals().count)
-          return Int(goalID)
-
+            let goalID = try db!.run(insert)
+            return Int(goalID)
+            
         } catch {
             print("Goals: Insert failed")
             return nil
         }
     }
     
-    
+    //updates the progress of a goal
     func updateGoal(aID:Int64, aprogress:Int)-> Bool{
         let goal =  Goals.filter(goalID == aID)
         
@@ -91,6 +91,7 @@ class GoalsDB{
         return false
     }
     
+    //Updates the experation date of a goal
     func updateDate(aID:Int64)-> Bool{
         let goal =  Goals.filter(goalID == aID)
         
@@ -108,32 +109,29 @@ class GoalsDB{
         return false
     }
 
-       
-        
-    
-    
+    //deltes a goal from the database
     func deleteGoal(aID: Int64){
         do {
             let goal = Goals.filter(goalID == aID)
             let _ = try db!.run(goal.delete())
-            print(getGoals().count)
         } catch {
             print("GOAL: Delete failed")
         }
     }
     
+    //gets all of the goals from the database and then updates the date and progress if past exeperation date
     func getGoals() -> [Goal]{
         var goals: [Goal] = []
         do{
             let dateNow = Date()
             for goal in try db!.prepare(self.Goals){
                 goals.append(
-                Goal(goalTitle: goal[names],
-                     unit: goal[units],
-                     goalTarget: goal[goalTarget],
-                     goalID: Int(goal[goalID]),
-                     progress: goal[progress],
-                     date: goal[date] ))
+                    Goal(goalTitle: goal[names],
+                         unit: goal[units],
+                         goalTarget: goal[goalTarget],
+                         goalID: Int(goal[goalID]),
+                         progress: goal[progress],
+                         date: goal[date] ))
             }
             for goal in goals{
                 if dateNow >= goal.date{
@@ -145,7 +143,6 @@ class GoalsDB{
         } catch {
             print("GOAL: unable to read the table")
         }
-        
         
         return goals
     }
