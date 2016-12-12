@@ -74,6 +74,7 @@ class GoalsDB{
         }
     }
     
+    
     func updateGoal(aID:Int64, aprogress:Int)-> Bool{
         let goal =  Goals.filter(goalID == aID)
         
@@ -90,6 +91,22 @@ class GoalsDB{
         return false
     }
     
+    func updateDate(aID:Int64)-> Bool{
+        let goal =  Goals.filter(goalID == aID)
+        
+        do{
+            let dateNow = Date()
+            let update = goal.update([
+                date <- dateNow.addingTimeInterval(7*24*60*60)
+                ])
+            if try db!.run(update) > 0{
+                return true
+            }
+        }catch{
+            print("Update failed: \(error)")
+        }
+        return false
+    }
 
        
         
@@ -104,11 +121,13 @@ class GoalsDB{
             print("GOAL: Delete failed")
         }
     }
+    
     func getGoals() -> [Goal]{
         var goals: [Goal] = []
         do{
+            let dateNow = Date()
             for goal in try db!.prepare(self.Goals){
-            goals.append(
+                goals.append(
                 Goal(goalTitle: goal[names],
                      unit: goal[units],
                      goalTarget: goal[goalTarget],
@@ -116,9 +135,17 @@ class GoalsDB{
                      progress: goal[progress],
                      date: goal[date] ))
             }
+            for goal in goals{
+                if dateNow >= goal.date{
+                    updateGoal(aID: Int64(goal.goalID), aprogress: -goal.progress)
+                    updateDate(aID: Int64(goal.goalID))
+                    
+                }
+            }
         } catch {
             print("GOAL: unable to read the table")
         }
+        
         
         return goals
     }
